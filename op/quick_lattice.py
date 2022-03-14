@@ -124,9 +124,9 @@ class QuickLattice(bpy.types.Operator):
         bpy.data.objects[obj.name].select_set(True)
         bpy.context.view_layer.objects.active = obj
 
-        #Fix for blender 2.90
-        version =  bpy.app.version_string[:4]
-        if float(version) >= 2.90:
+        #Fix for blender 2.90 / 3.0
+        version =  float('{0}.{1}'.format(bpy.app.version[0],bpy.app.version[1]))
+        if version >= 2.90:
             bpy.ops.object.modifier_apply(modifier="Lattice")
         else:
             bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Lattice")

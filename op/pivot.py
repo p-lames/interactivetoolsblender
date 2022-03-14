@@ -77,7 +77,7 @@ class QuickEditPivot(bpy.types.Operator):
     """
 
     def execute(self, context):
-        if float(bpy.app.version_string[:4]) >= 2.82 and not get_enable_legacy_origin():
+        if float('{0}.{1}'.format(bpy.app.version[0],bpy.app.version[1])) >= 2.82 and not get_enable_legacy_origin():
             mode = itools.get_mode()
             if mode in ['VERT', 'EDGE', 'FACE']:
                 itools.set_mode('OBJECT')
