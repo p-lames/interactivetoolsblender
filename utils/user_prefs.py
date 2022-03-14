@@ -426,7 +426,7 @@ class AddonPreferences(AddonPreferences):
         row = box.row(align=True)
         row.prop(self, "enable_legacy_tools", toggle=False)
 
-        if float(bpy.app.version_string[:4]) >= 2.82:
+        if float('{0}.{1}'.format(bpy.app.version[0],bpy.app.version[1])) >= 2.82:
             row = box.row(align=True)
             row.prop(self, "enable_legacy_origin", toggle=False)
 
